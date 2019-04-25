@@ -8,7 +8,7 @@ module.exports = (client, message) => {
 		const prefixMention = new RegExp(`^<@${client.user.id}>`);
 		const prefix = message.content.match(prefixMention) ? message.content.match(prefixMention)[0] : config.prefix;
 		//	Check if message doesn't with prefix, or was sent by bot, or doesn't have permission to send message.
-		if (!message.content.startsWith(prefix) || message.author.bot) return;
+		if (!message.content.startsWith(prefix)) return;
 		else {
 			if(!message.channel.type == 'dm' && !message.channel.permissionsFor(message.client.user).has('SEND_MESSAGES')) return;
 

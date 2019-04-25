@@ -34,7 +34,7 @@ module.exports = {
 			else {
 				const command = commands.get(args[0]);
 				const space = ' ';
-				message.author.send(`Details of \`${config.prefix}${command.name}\``);
+				if(!message.author.bot && message.channel.type != 'dm') message.author.send(`Details of \`${config.prefix}${command.name}\``);
 				data.push('```asciidoc\n');
 				for(const prop in command) {
 					// eslint-disable-next-line curly
@@ -50,8 +50,11 @@ module.exports = {
 		client.generateInvite()
 			.then(link => {
 				helpEmbed.addField('**Want some pickup lines?**', `[Add me Master!](${link})`);
-				if(message.channel.type != 'dm') message.channel.send(`${message.author}, check DM!`);
-				message.author.send(helpEmbed);
+				if(message.channel.type != 'dm' && !message.author.bot) message.channel.send(`${message.author}, check DM!`);
+				if(!message.author.bot) message.author.send(helpEmbed);
+			})
+			.catch(err => {
+				console.log(err);
 			});
 	},
 };
