@@ -49,8 +49,8 @@ module.exports = {
 		}
 		client.generateInvite()
 			.then(link => {
-				helpEmbed.addField('**Want some pickup lines?**', `[Add me Master!](${link})`);
-				if(message.channel.type != 'dm' && !message.author.bot) message.channel.send(`${message.author}, check DM!`);
+				helpEmbed.addField('**Want some pickup lines?**', `[Add me Captain!](${link})`);
+				if(message.channel.type != 'dm' && !message.author.bot) message.channel.send(`${message.author}, Sliding into your DMs!`);
 				if(!message.author.bot) message.author.send(helpEmbed);
 			})
 			.catch(err => {
