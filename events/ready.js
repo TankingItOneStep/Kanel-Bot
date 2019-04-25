@@ -1,0 +1,11 @@
+module.exports = client => {
+	console.log(`Logged in as ${client.user.tag}!`);
+	const config = client.defaultSettings;
+	try {
+		client.emojiList = client.guilds.get('299841356942278656').emojis;
+	}
+	catch(err) {
+		console.log(err);
+	}
+	client.user.setActivity(`with ${client.users.size} Pixies | type ${config.prefix}help`);
+};
