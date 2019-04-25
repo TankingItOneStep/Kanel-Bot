@@ -6,4 +6,4 @@ const client = new Kanel();
 client.loadEvents();
 client.loadCommands();
 
-client.login('NTcwODUwOTI0Mzk0ODQwMDc3.XMFOaw.VMqw5azG-CUKUol0EjbQ3JPsHzI');
+client.login(process.env.TOKEN);
